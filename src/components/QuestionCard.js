@@ -1,7 +1,7 @@
 import React from 'react';
 import AnswerButton from './AnswerButton';
 
-const QuestionCard = ({ currentQuestionIndex, questionData, selectedAnswer, status, onSelectAnswer }) => {
+const QuestionCard = ({ currentQuestionIndex, questionData, selectedAnswer, status, hiddenOptions, onSelectAnswer }) => {
     if (!questionData) return null;
 
     return (
@@ -26,6 +26,7 @@ const QuestionCard = ({ currentQuestionIndex, questionData, selectedAnswer, stat
                         selectedAnswer={selectedAnswer}
                         correctAnswer={questionData.answer}
                         status={status}
+                        isHidden={hiddenOptions.includes(index)}
                         onSelect={onSelectAnswer}
                     />
                 ))}

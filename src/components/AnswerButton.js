@@ -1,20 +1,40 @@
 import React from 'react';
 import { LETTERS } from '../data';
 
-const AnswerButton = ({ index, option, selectedAnswer, correctAnswer, status, onSelect }) => {
+const AnswerButton = ({ index, option, selectedAnswer, correctAnswer, status, isHidden, onSelect }) => {
     let bgColor = 'white';
+
+    if (isHidden) {
+        return (
+            <button
+                disabled
+                style={{
+                    padding: '12px',
+                    fontSize: '16px',
+                    backgroundColor: '#e0e0e0',
+                    border: '1px solid #ccc',
+                    borderRadius: '5px',
+                    cursor: 'not-allowed',
+                    textAlign: 'left',
+                    color: 'transparent'
+                }}
+            >
+                {LETTERS[index]}.
+            </button>
+        );
+    }
 
     if (status === 'locked' || status === 'revealed') {
         if (index === selectedAnswer) {
-            bgColor = 'orange'; // Đang chốt
+            bgColor = 'orange';
         }
     }
 
     if (status === 'revealed') {
         if (index === correctAnswer) {
-            bgColor = '#d4edda'; // Xanh lá cho đáp án đúng
+            bgColor = '#d4edda';
         } else if (index === selectedAnswer && selectedAnswer !== correctAnswer) {
-            bgColor = '#f8d7da'; // Đỏ cho đáp án đã chọn nhưng sai
+            bgColor = '#f8d7da';
         }
     }
 

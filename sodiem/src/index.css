@@ -4,12 +4,13 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.5;
 }
 
 .app {
   min-height: 100vh;
-  padding: 24px;
+  padding: 28px 20px 40px;
   transition: background-color 0.2s, color 0.2s;
 }
 
@@ -24,59 +25,340 @@ body {
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 980px;
   margin: 0 auto;
 }
 
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.65rem;
+  color: #1e40af;
+  letter-spacing: -0.01em;
+}
+
+header button {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  border-color: #bfdbfe;
+  font-weight: 500;
+  padding: 7px 14px;
+}
+
+header button:hover {
+  background-color: #dbeafe;
+}
+
 section {
-  margin-bottom: 24px;
-  padding: 16px;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 20px 22px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background-color: #f8fafc;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+section h2 {
+  margin: 0 0 14px;
+  padding-left: 10px;
+  border-left: 4px solid #3b82f6;
+  font-size: 1.15rem;
+  color: #1e293b;
+}
+
+section h3 {
+  margin: 18px 0 10px;
+  font-size: 0.98rem;
+  color: #334155;
+}
+
+section p {
+  margin: 6px 0;
+}
+
+section:first-of-type>p {
+  display: inline-block;
+  margin: 4px 8px 4px 0;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+  color: #1e3a8a;
+  font-size: 0.94rem;
+  font-weight: 500;
+}
+
+section ul li span:first-child {
+  display: inline-block;
+  min-width: 54px;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+section ul li span:last-child {
+  border-radius: 4px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 12px;
+  font-size: 0.94rem;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 th,
 td {
-  border: 1px solid #cbd5e1;
-  padding: 8px 10px;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 9px 11px;
   text-align: left;
+}
+
+th {
+  background-color: #eff6ff;
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+table input[type='number'] {
+  width: 76px;
+}
+
+table button {
+  background-color: #fff1f2;
+  color: #be123c;
+  border-color: #fecdd3;
+  padding: 5px 11px;
+  font-size: 0.88rem;
+}
+
+table button:hover {
+  background-color: #ffe4e6;
 }
 
 tr.fail-row {
   color: #c62828;
+  background-color: #fef2f2 !important;
 }
 
 .error-msg {
   color: #c62828;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   margin-top: 4px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px 16px;
+  align-items: start;
 }
 
 .form-group {
   margin-bottom: 12px;
   display: flex;
   flex-direction: column;
-  max-width: 360px;
+  max-width: 340px;
+}
+
+form .form-group {
+  margin-bottom: 0;
+  max-width: none;
 }
 
 .form-group label {
   margin-bottom: 4px;
   font-weight: 500;
+  font-size: 0.92rem;
 }
 
 input,
 select,
 button {
-  padding: 6px 10px;
-  font-size: 1rem;
+  padding: 7px 11px;
+  font-size: 0.94rem;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: inherit;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.16);
 }
 
 button {
   cursor: pointer;
+  background-color: #f1f5f9;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+button:hover {
+  background-color: #e2e8f0;
+}
+
+button[type='submit'] {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: 4px;
+  padding: 8px 18px;
+  font-weight: 500;
+  background-color: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+button[type='submit']:hover {
+  background-color: #1d4ed8;
+}
+
+section:last-of-type>p {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  background-color: #eff6ff;
+  border-left: 3px solid #2563eb;
+  color: #1e3a8a;
+  font-weight: 500;
+}
+
+.app.dark header {
+  border-bottom-color: #334155;
+}
+
+.app.dark header h1 {
+  color: #93c5fd;
+}
+
+.app.dark header button {
+  background-color: #2d3748;
+  color: #93c5fd;
+  border-color: #475569;
+}
+
+.app.dark header button:hover {
+  background-color: #374151;
+}
+
+.app.dark section {
+  background-color: #262c3a;
+  border-color: #334155;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
+}
+
+.app.dark section h2 {
+  color: #f1f5f9;
+  border-left-color: #60a5fa;
+}
+
+.app.dark section h3 {
+  color: #cbd5e1;
+}
+
+.app.dark section:first-of-type>p {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #bfdbfe;
+}
+
+.app.dark table {
+  background-color: #222836;
+  border-color: #334155;
+}
+
+.app.dark th {
+  background-color: #2c3548;
+  color: #bfdbfe;
+}
+
+.app.dark th,
+.app.dark td {
+  border-bottom-color: #334155;
+}
+
+.app.dark tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.app.dark tbody tr:hover {
+  background-color: rgba(148, 163, 184, 0.08);
+}
+
+.app.dark tr.fail-row {
+  color: #c62828;
+  background-color: rgba(198, 40, 40, 0.14) !important;
+}
+
+.app.dark table button {
+  background-color: rgba(190, 18, 60, 0.18);
+  color: #fda4af;
+  border-color: rgba(251, 113, 133, 0.35);
+}
+
+.app.dark table button:hover {
+  background-color: rgba(190, 18, 60, 0.3);
+}
+
+.app.dark input,
+.app.dark select {
+  background-color: #1f2430;
+  border-color: #475569;
+  color: #e8eaf0;
+}
+
+.app.dark button {
+  background-color: #334155;
+  border-color: #475569;
+  color: #e8eaf0;
+}
+
+.app.dark button:hover {
+  background-color: #475569;
+}
+
+.app.dark button[type='submit'] {
+  background-color: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+}
+
+.app.dark button[type='submit']:hover {
+  background-color: #1d4ed8;
+}
+
+.app.dark section:last-of-type>p {
+  background-color: #1e293b;
+  border-left-color: #60a5fa;
+  color: #bfdbfe;
+}
+
+
+.app.dark section:last-of-type>p {
+  background-color: #1e293b;
+  border-left-color: #60a5fa;
+  color: #bfdbfe;
 }

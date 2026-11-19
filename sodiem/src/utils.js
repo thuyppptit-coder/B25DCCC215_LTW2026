@@ -56,7 +56,7 @@ export const calcRequired = (courses, target, remaining) => {
         !Number.isInteger(remNum) ||
         remNum < 1
     ) {
-        return 'Hãy nhập GPA mục tiêu (0-4) và số tín chỉ còn lại (từ 1)';
+        return 'Hãy nhập GPA mục tiêu (0–4) và số tín chỉ còn lại (từ 1)';
     }
 
     const { credits, points } = calcStats(courses);

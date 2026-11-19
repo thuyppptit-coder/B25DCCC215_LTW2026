@@ -43,3 +43,30 @@ export const calcStats = (courses) => {
         rank,
     };
 };
+export const calcRequired = (courses, target, remaining) => {
+    const targetNum = Number(target);
+    const remNum = Number(remaining);
+
+    if (
+        target === '' ||
+        remaining === '' ||
+        Number.isNaN(targetNum) ||
+        targetNum < 0 ||
+        targetNum > 4 ||
+        !Number.isInteger(remNum) ||
+        remNum < 1
+    ) {
+        return 'Hãy nhập GPA mục tiêu (0-4) và số tín chỉ còn lại (từ 1)';
+    }
+
+    const { credits, points } = calcStats(courses);
+    const need = (targetNum * (credits + remNum) - points) / remNum;
+
+    if (need > 4) {
+        return 'Không thể đạt mục tiêu này';
+    }
+    if (need <= 0) {
+        return 'Bạn đã đạt mục tiêu';
+    }
+    return `Cần đạt trung bình ${need.toFixed(2)} điểm (hệ 4) ở ${remNum} tín chỉ còn lại`;
+};
